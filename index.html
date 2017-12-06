@@ -111,16 +111,32 @@
 			}
 
 			function hit() {
-				makeCards();
-				evaluate(cardD,cardH);	
-				console.log(cardD);
-				console.log(cardH);
+				var positive = checkBet();
+				if(positive){
+					makeCards();
+					evaluate(cardD,cardH);	
+					console.log(cardD);
+					console.log(cardH);
+				}
 
+			}
+
+			function checkBet(){
+				var beet = parseInt(document.getElementById("bet").value);
+				if(beet<5||beet==NaN){
+					alert("Minimum bet is $5. Thank You.");
+					return false;
+				}else{
+					return true;
+				}
 			}
 
 			function stay() {
 				ini+=10;
-				evaluate(cardD,cardH);				
+				var positive = checkBet();
+				if(positive){
+					evaluate(cardD,cardH);	
+				}			
 			}
 
 			function playEffect(song){
