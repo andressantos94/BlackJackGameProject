@@ -10,72 +10,25 @@
 				width: 800px
 				margin: auto;	
 			}
-			table{
-				padding-top: 0px;
-				padding-bottom: 0px;
-			}
-			#main{
-				padding-left: 220px;
-			}
-			#logo{
-				width: 450px;
-				height: 200px;
-				padding-left: 150px;
-			}
-			#audio{
-				width: 70px;
-				height: 80px;
-			}
-			#you{
-				text-align: left;
-				font-size: 50px;
-				color: white;
-				text-shadow: 2px 2px black;
-			}
-			#raise{
-				padding-left: 220px;
-			}
-			#deal{
-				text-align: right;
-				color: red;
-				text-shadow: 2px 2px black;
-				font-size: 50px;
-				padding-left: 250px;
-			}
-			#earns{
-				text-shadow: 1px 1px red;
-			}
 			img{
 				height: 110px;
 				width: 80px;
-				padding-right: 10px;
+				position: absolute padding-right: 40px;
 			}
 			h1{
-				padding-left: 240px;
-			}
-			h2{
-
+				padding-left: 230px;
 			}
 			form{
 				padding-top: 5px;
-				padding-left: 220px;
+				padding-left: 160px;
 				display: inline-block;
 
 			}
 			input[type=button]{
-				height: 40px;
-				width: 80px;
+				height: 30px;
+				width: 70px;
 				text-align: center;
 				font-size: 20px;
-				background: black;
-				color: yellow;	
-				margin-right: 10px;
-				margin-bottom: 15px;
-			}
-			input[type=button]:hover{
-				background: yellow;
-				color: black;
-				font-style: inherit;
 			}
 			input[type=text]{
 				height: 30px;
@@ -86,53 +39,37 @@
 			body{
 				background: #327113;
 			}
-
 		</style>
-		<div id="main">
-			<img id="logo" src="LogoBlackJackAndres3.png"><br>
-			<img style="height: 75px; width: 100px;" src="dealer3.png">
-			<div>
-				<img src="">
-				<img src="">
-				<img src="">
-				<img src="">
-				<img src="">
-				<img src="">
-				<img src="">
-			</div>
-			<table>
-				<tr>
-					<td><h2 id="deal"></h2></td>
-					<td><img id="versus" style="height: 100px; width: 90px;" src="versus.png"></td>
-					<td><h2 id="you"></h2></td>
-				</tr>
-			</table>
-			<div>
-				<img src="">
-				<img src="">
-				<img src="">
-				<img src="">
-				<img src="">
-				<img src="">
-				<img src="">
-			</div>
-			<img src="you.png">
-			<table>
-				<tr>
-					<td colspan="2"><h1 id="earns">Total Earns: $</h1></td>
-				</tr>
-				<tr>
-					<td><h2 id="raise" style="text-align: right;">Raise Bet:</h2></td>
-					<td><input type="text" id="bet" value="5"></td>
-				</tr>
-			</table>
-			<form>
-				<input type="button" value="Start" onclick="start()">
-				<input type="button" value="Hit" onclick="hit()">
-				<input type="button" value="Stay" onclick="stay()">
-			</form>
-			<img id="audio" onclick="changeAudio()" src="audioOn.png">
+		<img style="height: 160px; width: 350px; padding-left: 155px" src="LogoBlackJackAndres2.png"><br>
+		<img style="height: 75px; width: 100px;" src="dealer3.png">
+		<div>
+			<img src="">
+			<img src="">
+			<img src="">
+			<img src="">
+			<img src="">
+			<img src="">
+			<img src="">
 		</div>
+		<br>
+		<img style="padding-left: 300px; height: 100px; width: 90px;" src="versus.png"><br>
+		<div>
+			<img src="">
+			<img src="">
+			<img src="">
+			<img src="">
+			<img src="">
+			<img src="">
+			<img src="">
+		</div>
+		<img src="you.png">
+		<h1 id="earns">Total Earns: $</h1>
+		<form>
+			<input type="button" value="Start" onclick="start()">
+			<input type="button" value="Hit" onclick="hit()">
+			<input type="button" value="Stay" onclick="stay()">
+			Raise Bet:<input type="text" id="bet" value="5">
+		</form>
 		<script type="text/javascript">
 			var ini = 0;
 			var ear = 0;
@@ -142,7 +79,6 @@
 			var imaHa = [];
 			var totHand = 0;
 			var snd;
-			var chang=0;
 			var aces=["Ab1.png","Ab2.png","Ar1.png","Ar2.png"];
 			var twos=["2b1.png","2b2.png","2r1.png","2r2.png"];
 			var threes=["3b1.png","3b2.png","3r1.png","3r2.png"];
@@ -156,7 +92,6 @@
 			var js=["Jb1.png","Jb2.png","Jr1.png","Jr2.png"];
 			var qs=["Qb1.png","Qb2.png","Qr1.png","Qr2.png"];
 			var ks=["Kb1.png","Kb2.png","Kr1.png","Kr2.png"];
-			var back=["amazonas.png","araguaney.png","avila.png","chiguire.png","flag.png","jaguar.png","medanos.png","orquidea.png","oso.png","peribeca.png","pico.png","pregonero.png","puente.png","roques.png","roraima.png","salto.png","salto2.png","santuario.png","surf.png","tonina.png","tucan.png","turpial.png","yanomami.png"];
 			var images = document.getElementsByTagName("img");
 
 			if(ini==0){
@@ -164,32 +99,6 @@
 				butto(true);
 				document.getElementById("earns").innerHTML += ear;
 				playEffect("bong.mp3");
-				paint();
-				document.getElementById("deal").innerHTML = "";
-				document.getElementById("you").innerHTML = "";
-			}
-
-			function changeAudio() {
-				if(chang==0){
-					document.getElementById("audio").src = "audioOff.png";
-					chang = 1;
-				}else{
-					document.getElementById("audio").src = "audioOn.png";
-					chang = 0;
-				}
-			}
-
-			function paint() {
-				for(var b=2;b<9;b++){
-					images[b].src=back[parseInt(Math.random()*23)];
-					images[b].style.width="80px";
-					images[b].style.height="110px";
-				}
-				for(var c=16;c>9;c--){
-					images[c].src=back[parseInt(Math.random()*23)];
-					images[c].style.width="80px";
-					images[c].style.height="110px";
-				}
 			}
 
 			function start() {
@@ -197,9 +106,6 @@
 				del();
 				butto(false);
 				playEffect("tie2.mp3");
-				if(ini==0){
-					paint();
-				}
 				makeCards();
 				evaluate(cardD,cardH);
 			}
@@ -207,7 +113,6 @@
 			function hit() {
 				var positive = checkBet();
 				if(positive){
-					playEffect("click.mp3");
 					makeCards();
 					evaluate(cardD,cardH);	
 					console.log(cardD);
@@ -219,7 +124,6 @@
 			function checkBet(){
 				var beet = parseInt(document.getElementById("bet").value);
 				if(beet<5||beet==NaN){
-					playEffect("error.mp3");
 					alert("Minimum bet is $5. Thank You.");
 					return false;
 				}else{
@@ -236,10 +140,8 @@
 			}
 
 			function playEffect(song){
-				if(chang==0){
-					snd = new Audio(song);
-					snd.play();
-				}
+				snd = new Audio(song);
+				snd.play();
 			}
 
 			function makeCards() {
@@ -378,13 +280,9 @@
 			function printCards(){
 				for(var t=0;t<imaDe.length;t++){
 					images[t+2].src=imaDe[t];
-					images[t+2].style.width="95px";
-					images[t+2].style.height="125px"; 
 				}
 				for(var p=16;p>16-imaHa.length;p--){
 					images[p].src=imaHa[16-p];
-					images[p].style.width="95px";
-					images[p].style.height="125px"; 
 				}
 			}
 
@@ -453,25 +351,20 @@
 
 				console.log("Este es el total del dealer:"+toD);
 				console.log("Este es el total del hand:"+toHa);
-
-				document.getElementById("deal").innerHTML = toD+"...";
-				document.getElementById("you").innerHTML = "..."+toHa;
-
 				console.log("Este es el valor de ini a la mitad de evaluacion:"+ini);
 				if(ini==1){
 					if(toD==21&&toHa==21){
 						//document.getElementById("win").innerHTML = "It's a tie!";
-						//images[9].src="tie.png";
-						//playEffect("tie.mp3");
-						finish("tie.mp3","tie",2);
+						images[9].src="tie.png";
+						playEffect("tie.mp3");
 						ini=0;
 						butto(true);
 					}else if(toD==21){
 						//document.getElementById("win").innerHTML = "Dealer Won!";
-						finish("eviltoy.mp3","DealerWon",1);
+						finish("eviltoy.mp3","DealerWon.png",1);
 					}else if(toHa==21){
 						//document.getElementById("win").innerHTML = "You Won!";
-						finish("applause.mp3","YouWon",0);
+						finish("applause.mp3","YouWon.png",0);
 					}
 				}else{	
 					var d = 21-toD;
@@ -481,37 +374,35 @@
 
 					if(d==0&&toHa==0){
 						//document.getElementById("win").innerHTML = "It's a tie!";
-						//images[9].src="tie.png";
-						//playEffect("tie.mp3");
-						finish("tie.mp3","tie",2);
+						images[9].src="tie.png";
+						playEffect("tie.mp3");
 						ini=0;
 						butto(true);
 					}else if(toD<=21 && toHa<=21 && ini>10){
 						if(d==h){
 							//"It's a tie!";
-							//images[9].src="tie.png";
-							finish("tie.mp3","tie",2);
-							//playEffect("tie.mp3");
+							images[9].src="tie.png";
+							playEffect("tie.mp3");
 							ini=0;
 							butto(true);
 						}else if(d>h||h==0){
 							//"You Won!";
-							finish("applause.mp3","YouWon",0);
+							finish("applause.mp3","YouWon.png",0);
 						}else if(d<h||d==0){
 							//"Dealer Won!";
-							finish("eviltoy.mp3","DealerWon",1);
+							finish("eviltoy.mp3","DealerWon.png",1);
 						}
 					}else if(h==0){
 						//"You Won!";
-						finish("applause.mp3","YouWon",0);
+						finish("applause.mp3","YouWon.png",0);
 					}else if(d==0){
 						//"Dealer Won!";
-						finish("eviltoy.mp3","DealerWon",1);
+						finish("eviltoy.mp3","DealerWon.png",1);
 					}else if(h<0){
 						//"You busted!";
-						finish("brokenglass.mp3","YouBust",1);
+						finish("brokenglass.mp3","YouBust2.png",1);
 					}else if(d<0){
-						finish("busted.mp3","DealerBust",0);
+						finish("busted.mp3","DealerBust.png",0);
 					}
 				}
 				console.log("Este es el valor de ini al finalizar la evaluacion:"+ini);
@@ -535,110 +426,13 @@
 			}
 
 			function butto(cond){
-				input[0].disabled = cond;
+				input[1].disabled = cond;
 				input[2].disabled = cond;
 				input[3].disabled = cond;
 			}
 
 			function finish(song,picture,b){
-				switch(picture){
-					case "YouWon":
-						images[2].src="Y.png";
-						images[3].src="o.png";
-						images[4].src="u.png";
-						images[13].src="W.png";
-						images[14].src="o2.png";
-						images[15].src="n.png";
-						images[16].src="fin.png";
-						for(var y=2;y<5;y++){
-							images[y].style.width="95px";
-							images[y].style.height="125px";
-						}
-						for(var x=13;x<17;x++){
-							images[x].style.width="95px";
-							images[x].style.height="125px";
-						}
-						break;
-					case "DealerWon":
-						images[2].src="WD.png";
-						images[3].src="We2.png";
-						images[4].src="Wa.png";
-						images[5].src="Wl2.png";
-						images[6].src="We.png";
-						images[7].src="Wr2.png";
-						images[13].src="WW.png";
-						images[14].src="Wo2.png";
-						images[15].src="Wn.png";
-						images[16].src="WFin2.png";
-						for(var y=2;y<8;y++){
-							images[y].style.width="95px";
-							images[y].style.height="125px";
-						}
-						for(var x=13;x<17;x++){
-							images[x].style.width="95px";
-							images[x].style.height="125px";
-						}
-						break;
-					case "YouBust":
-						images[2].src="BY.png";
-						images[3].src="Bo.png";
-						images[4].src="BU.png";
-						images[12].src="BB.png";
-						images[13].src="BU.png";
-						images[14].src="Bs.png";
-						images[15].src="Bt.png";
-						images[16].src="BFin.png";
-						for(var y=2;y<5;y++){
-							images[y].style.width="95px";
-							images[y].style.height="125px";
-						}
-						for(var x=12;x<17;x++){
-							images[x].style.width="95px";
-							images[x].style.height="125px";
-						}
-						break;
-					case "DealerBust":
-						images[2].src="BD.png";
-						images[3].src="Be2.png";
-						images[4].src="Ba.png";
-						images[5].src="Bl.png";
-						images[6].src="Be.png";
-						images[7].src="Br.png";
-						images[12].src="BB2.png";
-						images[13].src="Bu3.png";
-						images[14].src="Bs2.png";
-						images[15].src="Bt2.png";
-						images[16].src="BFin2.png";
-						for(var y=2;y<8;y++){
-							images[y].style.width="95px";
-							images[y].style.height="125px";
-						}
-						for(var x=12;x<17;x++){
-							images[x].style.width="95px";
-							images[x].style.height="125px";
-						}
-						break;
-					case "tie":
-						images[2].src="TI.png";
-						images[3].src="Tt.png";
-						images[4].src="Tcoma.png";
-						images[5].src="Ts.png";
-						images[6].src="Space.png";
-						images[7].src="Ta.png";
-						images[13].src="TT2.png";
-						images[14].src="Ti2.png";
-						images[15].src="Te.png";
-						images[16].src="TFin.png";
-						for(var y=2;y<8;y++){
-							images[y].style.width="95px";
-							images[y].style.height="125px";
-						}
-						for(var x=13;x<17;x++){
-							images[x].style.width="95px";
-							images[x].style.height="125px";
-						}
-						break;
-				}
+				images[9].src=picture;
 				playEffect(song);
 				butto(true);
 				ini=0;
