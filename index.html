@@ -221,7 +221,7 @@
 
 			function checkBet(){
 				var beet = parseInt(document.getElementById("bet").value);
-				if(beet<5||beet==NaN){
+				if(beet<5||isNaN(beet)){
 					playEffect("error.mp3");
 					alert("Minimum bet is $5. Thank You.");
 					return false;
