@@ -20,7 +20,8 @@
 			#logo{
 				width: 450px;
 				height: 200px;
-				padding-left: 150px;
+				padding-left: 120px;
+				margin-bottom: 10px;
 			}
 			#audio{
 				width: 70px;
@@ -33,7 +34,7 @@
 				text-shadow: 2px 2px black;
 			}
 			#raise{
-				padding-left: 220px;
+				padding-left: 100px;
 				text-shadow: 0.5px 0.5px yellow;
 				font-size: 30px;
 			}
@@ -46,6 +47,8 @@
 			}
 			#earns{
 				text-shadow: 1px 1px red;
+				padding-left:75px; 
+				padding-top:20px; 
 			}
 			img{
 				height: 110px;
@@ -59,20 +62,19 @@
 
 			}
 			form{
-				padding-top: 5px;
-				padding-left: 220px;
+				padding-top: 0px;
+				padding-left:90px;
 				display: inline-block;
 
 			}
 			input[type=button]{
-				height: 40px;
-				width: 80px;
+				height: 50px;
+				width: 155px;
 				text-align: center;
 				font-size: 20px;
 				background: black;
 				color: yellow;	
 				margin-right: 10px;
-				margin-bottom: 15px;
 			}
 			input[type=button]:hover{
 				background: yellow;
@@ -80,7 +82,7 @@
 				font-style: inherit;
 			}
 			input[type=text]{
-				height: 30px;
+				height: 50px;
 				width: 50px;
 				text-align: center;
 				font-size: 20px;
@@ -121,17 +123,16 @@
 			<img src="you.png">
 			<table>
 				<tr>
-					<td colspan="2"><h1 id="earns">Total Earns: $</h1></td>
-				</tr>
-				<tr>
-					<td><h2 id="raise" style="text-align: right;">Raise Bet:</h2></td>
+					<td colspan="2"><h1 id="earns">Total Earns<br>(Ganancias): $</h1></td>
+					<td> </td>
+					<td><h2 id="raise" style="text-align: right;">Raise Bet<br>(Subir apuesta):</h2></td>
 					<td><input type="text" id="bet" value="5"></td>
 				</tr>
 			</table>
 			<form>
-				<input type="button" value="Start" onclick="start()">
-				<input type="button" value="Hit" onclick="hit()">
-				<input type="button" value="Stay" onclick="stay()">
+				<input type="button" value="Start(Empezar)" onclick="start()">
+				<input type="button" value="Hit(Otra Carta)" onclick="hit()">
+				<input type="button" value="Stay(Quedarse)" onclick="stay()">
 			</form>
 			<img id="audio" onclick="changeAudio()" src="AudioOn.png">
 		</div>
@@ -515,6 +516,9 @@
 					}else if(d<0){
 						finish("busted.mp3","DealerBust",0);
 					}else if(h>0 && haa.length>=5){
+						images[12].src=back[parseInt(Math.random()*23)];
+						images[12].style.width="80px";
+						images[12].style.height="110px";
 						finish("applause.mp3","YouWon",0);
 					}
 				}
